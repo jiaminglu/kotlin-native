@@ -21,8 +21,8 @@ package kotlin.reflect
  * such as a class or a package.
  */
 public interface KDeclarationContainer {
-    /**
-     * All functions and properties accessible in this container.
-     */
-    public val members: Collection<KCallable<*>>
+//    /**
+//     * All functions and properties accessible in this container.
+//     */
+//    public val members: Collection<KCallable<*>>
 }
