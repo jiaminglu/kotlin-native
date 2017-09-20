@@ -22,6 +22,8 @@
 #include "Common.h"
 #include "Names.h"
 
+struct ObjHeader;
+
 // An element of sorted by hash in-place array representing methods.
 // For systems where introspection is not needed - only open methods are in
 // this table.
@@ -55,6 +57,14 @@ struct TypeInfo {
     const FieldTableRecord* fields_;
     // Is negative to mark an interface.
     int32_t fieldsCount_;
+
+    // String for the fully qualified dot-separated name of the class,
+    // or `null` if class is local or anonymous.
+    ObjHeader* qualifiedName_;
+
+    // String for the simple name of the class,
+    // or `null` if it is not a local named class.
+    ObjHeader* localClassSimpleName_;
 
     // vtable starts just after declared contents of the TypeInfo:
     // void* const vtable_[];
